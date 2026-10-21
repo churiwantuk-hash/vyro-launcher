@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ดาวน์โหลด VYRO Launcher</title>
+<meta name="description" content="VYRO Launcher — บันทึกเซิร์ฟเวอร์ FiveM ที่ชอบ ดูคนออนไลน์ และเข้าเล่นในคลิกเดียว">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%20120%22%3E%3Crect%20width%3D%22120%22%20height%3D%22120%22%20rx%3D%2228%22%20fill%3D%22%230a0a0b%22%2F%3E%3Cg%20transform%3D%22translate(60%2057)%20scale(0.78)%20translate(-60%20-56)%22%3E%3Cpath%20d%3D%22M60%2018%20L100%2086%20L20%2086%20Z%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%227%22%2F%3E%3Cpath%20d%3D%22M26%2038%20L46%2038%20L60%2070%20L74%2038%20L94%2038%20L66%20102%20L54%20102%20Z%22%20fill%3D%22%23fff%22%20stroke%3D%22%230a0a0b%22%20stroke-width%3D%229%22%20paint-order%3D%22stroke%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #000000; --card: #0e0e10; --edge: #1f1f23; --edge-strong: #2e2e34;
+    --text: #f4f4f5; --body: #b4b4bb; --muted: #6b6b73;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--text); }
+  body {
+    font-family: Inter, "IBM Plex Sans Thai", "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased; line-height: 1.6;
+    background: radial-gradient(900px 420px at 50% -120px, rgba(255,255,255,0.07), transparent 70%), var(--bg);
+    min-height: 100vh;
+  }
+  main { max-width: 560px; margin: 0 auto; padding: 64px 16px 48px; }
+  .hero { text-align: center; }
+  .logo {
+    width: 80px; height: 80px; margin: 0 auto; border-radius: 22px; background: #0a0a0b;
+    border: 1px solid rgba(255,255,255,0.22); display: grid; place-items: center;
+    box-shadow: 0 0 48px rgba(255,255,255,0.10);
+  }
+  .logo svg { width: 54px; height: 54px; display: block; }
+  .brand { margin: 22px 0 0; font-weight: 700; font-size: 15px; letter-spacing: 0.32em; }
+  h1 { margin: 46px 0 8px; font-size: 26px; font-weight: 600; }
+  .lead { margin: 0; color: var(--body); font-size: 15px; }
+  .download {
+    display: inline-flex; align-items: center; gap: 10px; margin-top: 26px; padding: 13px 26px;
+    background: #f4f4f5; color: #0a0a0b; border-radius: 12px; font-weight: 600; font-size: 15px;
+    text-decoration: none; transition: background .15s, transform .15s;
+  }
+  .download:hover { background: #ffffff; }
+  .download:active { transform: scale(0.98); }
+  .download svg { width: 17px; height: 17px; }
+  .meta { margin: 14px 0 0; color: var(--muted); font-size: 12.5px; }
+  .card { margin-top: 26px; background: var(--card); border: 1px solid var(--edge); border-radius: 16px; padding: 22px 22px 8px; }
+  .card + .card { margin-top: 14px; }
+  .label { margin: 0 0 14px; font-size: 12px; font-weight: 600; color: var(--body); letter-spacing: 0.02em; }
+  ol, ul { list-style: none; margin: 0; padding: 0; }
+  li { display: grid; grid-template-columns: 24px 1fr; gap: 12px; padding-bottom: 18px; }
+  .num {
+    width: 24px; height: 24px; border-radius: 7px; border: 1px solid var(--edge-strong);
+    display: grid; place-items: center; font-size: 11.5px; font-weight: 600; color: var(--body); margin-top: 1px;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--text); margin: 9px 0 0 9px; }
+  .t { margin: 0; font-weight: 600; font-size: 14.5px; }
+  .d { margin: 3px 0 0; color: var(--body); font-size: 13.5px; }
+  code { font-family: inherit; color: var(--text); }
+  footer { margin-top: 38px; text-align: center; color: var(--muted); font-size: 12px; }
+  footer p { margin: 4px 0; }
+  @media (max-width: 480px) { main { padding-top: 44px; } h1 { font-size: 22px; } .card { padding: 18px 16px 4px; } }
+</style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <div class="logo" role="img" aria-label="VYRO"><svg viewBox="12 9 96 96" aria-hidden="true"><defs><mask id="gap" maskUnits="userSpaceOnUse" x="0" y="0" width="120" height="120"><rect width="120" height="120" fill="#fff"/><path d="M26 38 L46 38 L60 70 L74 38 L94 38 L66 102 L54 102 Z" fill="#000" stroke="#000" stroke-width="9" stroke-linejoin="miter"/></mask></defs><path d="M60 18 L100 86 L20 86 Z" fill="none" stroke="#fff" stroke-width="7" stroke-linejoin="miter" mask="url(#gap)"/><path d="M26 38 L46 38 L60 70 L74 38 L94 38 L66 102 L54 102 Z" fill="#fff"/></svg></div>
+    <p class="brand">VYRO LAUNCHER</p>
+
+    <h1>ดาวน์โหลด VYRO Launcher</h1>
+    <p class="lead">บันทึกเซิร์ฟเวอร์ FiveM ที่ชอบ ดูคนออนไลน์ แล้วเข้าเล่นได้ในคลิกเดียว</p>
+
+    <a class="download" id="download" href="https://github.com/churiwantuk-hash/vyro-launcher/releases/download/v1.0.0/VYRO.FiveM.Launcher.Setup-1.0.0.exe" download>
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M0 2.2 6.5 1.3v6.2H0zm7.3-1L16 0v7.5H7.3zM0 8.3h6.5v6.3L0 13.7zm7.3 0H16V16l-8.7-1.2z"/></svg>
+      ดาวน์โหลด
+    </a>
+    <p class="meta"><span id="version"></span>Windows 10/11 (64-bit) · ต้องมี GTA V กับ FiveM และบัญชี Steam</p>
+  </section>
+
+  <section class="card">
+    <p class="label">ตอนติดตั้งอาจเจอ 4 อย่างนี้ เป็นเรื่องปกติ</p>
+    <ol>
+      <li><span class="num">1</span><div>
+        <p class="t">หน้าจอสีน้ำเงิน “Windows protected your PC”</p>
+        <p class="d">ตัวติดตั้งยังไม่มีลายเซ็นดิจิทัลจากผู้ออกใบรับรอง กด <code>More info</code> แล้วกด <code>Run anyway</code></p>
+      </div></li>
+      <li><span class="num">2</span><div>
+        <p class="t">ตัวติดตั้งขอสิทธิ์ผู้ดูแลระบบ</p>
+        <p class="d">VYRO ติดตั้งให้ทุกบัญชีในเครื่อง (Program Files) กด <code>Yes</code> เพื่อติดตั้งต่อ</p>
+      </div></li>
+      <li><span class="num">3</span><div>
+        <p class="t">หน้าต่างสีเหลือง Publisher: Unknown ทุกครั้งที่เปิด</p>
+        <p class="d">ระบบตรวจความปลอดภัยและกันโปรของ VYRO ต้องใช้สิทธิ์ผู้ดูแล ให้กด <code>Yes</code> — ถ้ากด No VYRO จะไม่เปิด</p>
+      </div></li>
+      <li><span class="num">4</span><div>
+        <p class="t">แอนตี้ไวรัสอาจกักไฟล์ไว้</p>
+        <p class="d">เปิด Windows Security → Virus &amp; threat protection → Protection history กดอนุญาตรายการของ VYRO แล้วติดตั้งใหม่</p>
+      </div></li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <p class="label">หลังติดตั้งเสร็จ</p>
+    <ul>
+      <li><span class="dot"></span><div>
+        <p class="t">อ่านและยอมรับข้อตกลง</p>
+        <p class="d">เปิดครั้งแรกจะมีข้อตกลงการใช้งาน ต้องเลื่อนอ่านจนสุดก่อนถึงจะกดยอมรับได้</p>
+      </div></li>
+      <li><span class="dot"></span><div>
+        <p class="t">ล็อกอินด้วย Steam</p>
+        <p class="d">ล็อกอินบนหน้าเว็บของ Steam เอง VYRO ไม่เห็นรหัสผ่านของคุณ และเก็บแค่ SteamID ชื่อ กับรูปโปรไฟล์ไว้ในเครื่อง</p>
+      </div></li>
+      <li><span class="dot"></span><div>
+        <p class="t">ลันเชอร์อัปเดตให้เอง</p>
+        <p class="d">ติดตั้งครั้งเดียวพอ เมื่อมีเวอร์ชันใหม่ VYRO จะดาวน์โหลดเบื้องหลัง ตรวจว่าเป็นไฟล์แท้ แล้วติดตั้งให้ตอนเปิดครั้งถัดไป ไม่ต้องกลับมาดาวน์โหลดใหม่</p>
+      </div></li>
+      <li><span class="dot"></span><div>
+        <p class="t">ห้ามเปิดโปรแกรมโกงระหว่างเล่น</p>
+        <p class="d">VYRO ตรวจโปรแกรมโกงที่รู้จักก่อนเข้าเซิร์ฟเวอร์และระหว่างเล่น ถ้าเจอจะไม่พาเข้าเซิร์ฟจนกว่าจะปิดโปรแกรมนั้น</p>
+      </div></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>VYRO ไม่ใช่ผลิตภัณฑ์ทางการของ Cfx.re (FiveM) หรือ Rockstar Games</p>
+    <p>© 2026 VYRO</p>
+  </footer>
+</main>
+<script>
+  fetch('update.json', { cache: 'no-store' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (feed) {
+      if (!feed || !feed.version) return;
+      var mb = feed.size ? ' · ' + Math.round(feed.size / 1048576) + ' MB' : '';
+      document.getElementById('version').textContent = 'เวอร์ชัน ' + feed.version + mb + ' · ';
+    })
+    .catch(function () {});
+</script>
+</body>
+</html>
